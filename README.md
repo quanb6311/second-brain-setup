@@ -13,7 +13,7 @@
 
 <br/>
 
-[![Version](https://img.shields.io/badge/setup-v2.2-4F8CFF?style=for-the-badge)](setup.md)
+[![Version](https://img.shields.io/badge/setup-v2.3-4F8CFF?style=for-the-badge)](setup.md)
 [![License: MIT](https://img.shields.io/badge/license-MIT-39E6C3?style=for-the-badge)](LICENSE)
 [![Single File](https://img.shields.io/badge/install-single%20file-orange?style=for-the-badge)](setup.md)
 
@@ -57,6 +57,7 @@
 - 🤖 **Claude *and* Codex, same brain** — generates `CLAUDE.md`, `AGENTS.md`, and `README.md` as one synced instruction set
 - 🧳 **Brings your old notes along** — opt-in, copy-first migration for existing vaults and notes (originals never touched)
 - 🔚 **Ships its own `/end-session` skill** — the closeout that writes your daily log is generated right into the vault
+- 📈 **Levels itself up** — every closeout logs improvement ideas and forces a keep/drop/watch decision, so the system evolves with you
 - ✅ **Verifies itself** — the build isn't "done" until a 13-point check passes
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

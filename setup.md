@@ -1,5 +1,5 @@
 # Second Brain Setup Guide
-Setup version: 2.2 (2026-07-13)
+Setup version: 2.3 (2026-07-13)
 ## For you, the human
 Use this file to create a personal Second Brain folder that future AI sessions can read and maintain.
 Install Claude Code from https://docs.anthropic.com/en/docs/claude-code/overview or Codex CLI from https://developers.openai.com/codex/cli.
@@ -176,6 +176,7 @@ SecondBrain/
 |   +-- Writing Style.md
 |   +-- Decisions.md
 |   +-- Learnings.md
+|   +-- Improvement Ideas.md
 |   +-- Audience.md
 |   +-- Offer.md
 |   +-- Branding.md
@@ -338,7 +339,7 @@ Claude Code discovers this file as a native skill; Codex and other agents reach 
 ```markdown
 ---
 name: end-session
-description: Session closeout for this vault. Trigger when the user says "End Session", "wrap up", "done for today", or the session clearly ends - not for a mid-work summary request. Writes the Daily Note, files decisions and learnings, sorts the Inbox, and keeps the instruction files in sync.
+description: Session closeout for this vault. Trigger when the user says "End Session", "wrap up", "done for today", or the session clearly ends - not for a mid-work summary request. Writes the Daily Note, files decisions and learnings, sorts the Inbox, keeps the instruction files in sync, and runs the improvement loop.
 ---
 
 # /end-session - vault closeout
@@ -347,23 +348,26 @@ Run this when the session ends. It is what makes the next session smarter than t
 
 ## Fast path (trivial sessions)
 
-A quick lookup or a tiny edit: add one line to today's Daily Note and stop.
+A quick lookup or a tiny edit: add one line to today's Daily Note and stop. No improvement entry needed.
 
 ## Full closeout
 
 1. Create or update today's Daily Note in `05 Daily Notes/YYYY-MM-DD.md` with the sections Done, Decisions, Open, Next.
 2. Capture check: every decision from this session is logged in `00 Context/Decisions.md`, every lesson in `00 Context/Learnings.md`, and project progress is in the matching files in `02 Projects/`.
-3. Offer to sort anything sitting in `01 Inbox/`.
-4. If `CLAUDE.md`, `AGENTS.md`, or `README.md` changed this session, confirm all three still match, with README keeping its one extra intro line.
-5. If the vault uses Git, offer exactly one commit of the changed vault files with the message `End session YYYY-MM-DD`.
-6. Report a short checklist: Daily Note written, captures filed, Inbox state, sync state, commit result.
+3. Improvement loop: add up to 3 candidates from THIS session to `00 Context/Improvement Ideas.md` with status `new`, or none if nothing qualifies (recurring friction, a manual sequence repeated more than once, a missing rule, a wrong assumption in the context files). Skip any idea that already exists as a `drop` row. Then decide EVERY row that is still `new` and every `watch` row whose date is more than 3 daily notes old: set it to `keep`, `drop`, or `watch`. You decide the rows yourself; tell the user about every row you set to `keep` this session so they can act on it. A row left on `new` means the closeout is not done.
+4. Offer to sort anything sitting in `01 Inbox/`.
+5. If `CLAUDE.md`, `AGENTS.md`, or `README.md` changed this session, confirm all three still match, with README keeping its one extra intro line.
+6. If the vault uses Git, offer exactly one commit of the changed vault files with the message `End session YYYY-MM-DD`.
+7. Report a short checklist: Daily Note written, captures filed, improvement rows decided, Inbox state, sync state, commit result.
 
 ## Hard rules
 
 1. Never skip the Daily Note.
-2. Never write passwords, API keys, tokens, or other secrets into the vault.
-3. Touch only files inside this vault.
-4. This is a compact closeout, never a long exported dump.
+2. Never leave an improvement row on `new`; deciding is part of the closeout.
+3. A `keep` is a recommendation to the user, never an auto-build; a `drop` row stays in the file so the idea is not proposed again.
+4. Never write passwords, API keys, tokens, or other secrets into the vault.
+5. Touch only files inside this vault.
+6. This is a compact closeout, never a long exported dump.
 ```
 ### 9.3 Create context files
 Create these files in `00 Context/`.
@@ -435,6 +439,20 @@ date: [TODAY]
 # Learnings
 
 Log of lessons learned and gotchas. Newest on top.
+```
+`Improvement Ideas.md`:
+```markdown
+---
+tags: [context]
+date: [TODAY]
+---
+
+# Improvement Ideas
+
+How this vault levels itself up. The session closeout adds candidates here; every candidate gets a decision.
+
+Format per row: date, idea, status.
+Statuses: new (undecided, not allowed to stay), keep (worth adopting, act on it), drop (rejected, keep the row so it is not proposed again), watch (revisit in a few sessions).
 ```
 Create `Audience.md`, `Offer.md`, and `Branding.md` only if Phase 7 produced relevant content.
 Give optional context files the same `tags` and `date` frontmatter pattern.
@@ -618,6 +636,7 @@ Explain how to use the vault:
 3. Say "remember this" for durable preferences, decisions, facts, or rules.
 4. Say "End Session" when stopping. In Claude Code this triggers the vault's own `/end-session` skill; in Codex or any other agent the instruction files route to the same closeout file. Either way the AI writes a Daily Note.
 5. Keep context files current over time.
+6. When the closeout flags a `keep` idea in `00 Context/Improvement Ideas.md`, act on it. That loop is how the vault levels itself up.
 Delete `setup-progress.md` after the verified build is complete.
 Ask whether to delete or keep `setup.md`.
 If the user keeps `setup.md`, explain that it is only needed for re-setup or upgrades.
