@@ -1,0 +1,49 @@
+<svg width="980" height="560" viewBox="0 0 980 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tbg" x1="0" y1="0" x2="0" y2="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0D1424"/>
+      <stop offset="1" stop-color="#0A101E"/>
+    </linearGradient>
+  </defs>
+
+  <!-- window -->
+  <rect x="10" y="10" width="960" height="540" rx="14" fill="url(#tbg)"/>
+  <rect x="11" y="11" width="958" height="538" rx="13" stroke="#26345C" stroke-width="2"/>
+
+  <!-- title bar -->
+  <rect x="10" y="10" width="960" height="46" rx="14" fill="#111A30"/>
+  <rect x="10" y="42" width="960" height="14" fill="#111A30"/>
+  <circle cx="42" cy="33" r="7" fill="#FF5F57"/>
+  <circle cx="66" cy="33" r="7" fill="#FEBC2E"/>
+  <circle cx="90" cy="33" r="7" fill="#28C840"/>
+  <text x="490" y="39" text-anchor="middle" font-family="Consolas, Menlo, monospace" font-size="16" fill="#7487B5">~/SecondBrain</text>
+
+  <!-- terminal body -->
+  <g font-family="Consolas, Menlo, monospace" font-size="18">
+    <text x="46" y="98"  fill="#39E6C3">$ <tspan fill="#E8EEFC">claude</tspan></text>
+    <text x="46" y="134" fill="#39E6C3">&gt; <tspan fill="#E8EEFC">run setup.md</tspan></text>
+
+    <text x="46" y="186" fill="#8FD8FF">AI:</text>
+    <text x="92" y="186" fill="#C7D3F2">Hey! I will build you a Second Brain: one folder that any</text>
+    <text x="92" y="212" fill="#C7D3F2">AI session reads first and writes back into. Ready?</text>
+
+    <text x="46" y="258" fill="#39E6C3">&gt; <tspan fill="#E8EEFC">yes, quick mode</tspan></text>
+
+    <text x="46" y="310" fill="#8FD8FF">AI:</text>
+    <text x="92" y="310" fill="#C7D3F2">What is your name and what do you do? ...</text>
+    <text x="92" y="336" fill="#6B7FAE">(interview: profile, projects, areas, writing style)</text>
+
+    <text x="46" y="388" fill="#8FD8FF">AI:</text>
+    <text x="92" y="388" fill="#C7D3F2">Preview confirmed. Building your vault...</text>
+
+    <text x="92" y="428" fill="#28C840">created</text>
+    <text x="196" y="428" fill="#C7D3F2">CLAUDE.md + AGENTS.md + README.md</text>
+    <text x="92" y="454" fill="#28C840">created</text>
+    <text x="196" y="454" fill="#C7D3F2">00 Context ... 07 Attachments (21 files)</text>
+    <text x="92" y="480" fill="#28C840">passed</text>
+    <text x="196" y="480" fill="#C7D3F2">13/13 verification checks</text>
+
+    <text x="46" y="524" fill="#8FD8FF">AI:</text>
+    <text x="92" y="524" fill="#E8EEFC">Your Second Brain is live. Every session now starts smarter.</text>
+  </g>
+</svg>
